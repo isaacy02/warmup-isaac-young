@@ -1,0 +1,17 @@
+---
+title: "About me"
+---
+
+Hello, my name is Isaac Young I am a student athlete at Georgetown College and currently a senior.
+
+## Early
+I am 21 years old and I was born on August 23, 2002. I am from Bowling Green, Kentucky, and I graduated from South Warren High School in the spring of 2020. 
+
+## Study
+Like I said I am a senior here at Georgetown college with two semesters left to finish before I graduate. I am an Economics major and have a minor in Computer Science class which is why I am making this website for the class CSC 324.
+
+## Sports
+I have played sports my whole life. I have always loved them and they have helped to bring me to the places that I am today. I play football for Georgetown College and have the whole time I have been here. Without football I probably would not have had the opportunity to come to Georgetown.
+
+## Hobbies
+There are a lot of things I like to do in my free time. Day to day I like to do things like hangout with my friends, gaming, go play with my dog, and other things. Other hobbies that I have that I do not get to do every day are going to the movies, live sports, concerts, like to travel, have only been to italy so far but hope to go many other places, etc.
