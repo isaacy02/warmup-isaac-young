@@ -1,0 +1,36 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Isaac Young's Website Warmup"
+  site-path: "/warmup-isaac-young/"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: articles/index.qmd
+        text: Articles
+
+  sidebar:
+    - id: articles
+      title: "Articles"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - text: "Chapter 4 Sum and Range"
+          href:  articles/article_01.qmd
+        - text: "Chapter 5 Everything"
+          href:  articles/article_02.qmd
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+
+
+

@@ -1,0 +1,4 @@
+---
+title: "Articles"
+---
+The articles on this site document the use of JavaScript in various contexts, and serve as examples for other students and also to showcase some of what I have learned.

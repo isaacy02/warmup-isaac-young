@@ -1,0 +1,93 @@
+---
+title: "Chapter 5 Everything Analysis"
+---
+
+## Introduction to Problem
+In this problem we are going to need to make 2 functions one using and loop and one using the sum function.
+
+## Problem
+Analogous to the some method, arrays also have an every method. This one returns true when the given function returns true for every element in the array. In a way, some is a version of the || operator that acts on arrays, and every is like the && operator.
+
+Implement every as a function that takes an array and a predicate function as parameters. Write two versions, one using a loop and one using the some method.
+
+## Explaining the code
+```js
+function every(array, predicate) {
+```
+
+We are going to start the code by creating a function that I named every. The function is going to take two parameters array and predicate. Array is just an array and predicate is going to be a function.
+
+```js
+    for (let element of array) {
+```
+
+In this line, we are going to start a for loop that is going to iterate over each of the elements in array.
+
+```js
+      if (!predicate(element)) return false;
+```
+
+Inside of the for loop we are going to use the if statement. It is going to check if the result of calling the predicate function with the current element as the one we are using is false. If false it means the condition assigned by the predicate function does not happen.  So therefore it is going to return back false.
+
+```js
+    }
+    return true;
+  }
+  ```
+
+Now if the loop completes without coming across a false from the prdeicate function it means that it has been met for all elements. If this happens than the return true returns it as true.
+
+  ```js
+  function every2(array, predicate) {
+```
+
+Now we are going to make another function called every2 that is going to take two parameters array and predicate once again.
+
+```js
+    return !array.some(element => !predicate(element));
+  }
+```
+
+Here we are going to use some on array this time. Some checks to see if at least one element in the array satisfies the condition provided by the function. With this function we check to see the result of calling predicate with the current element is true. We use ! to see if all elements satisfy the conditon that is going to be set by predicate. It returns true if all elements are satisfied and false otherwise.
+
+## Examples
+
+These are examples from the book that are used to test our functions.
+
+```js
+  console.log(every([1, 3, 5], n => n < 10));
+```
+
+Here we are going to use the every function and fill the array with 1, 3, and 5. And the predicate function is going to be what is says. Predicate is checking to see is n is less than 10, in this case they all are and the console will print as true.
+
+```js
+  console.log(every([2, 4, 16], n => n < 10));
+```
+
+In this example we call the every function with 2, 4, and 16 and the same predicate function this time it returns false becasuse 16 is not less than 10.
+
+```js
+  console.log(every([], n => n < 10));
+```
+
+In this last example we run the empty function with an empty array and a new function for predicate. Since there is nothing in the array it immediately returns true.
+
+## Full code
+A complete solution to the problem may be found [here](/js/everything.js), or the reader may view it below:
+
+```{.javascript filename="everything.js"}
+function every(array, predicate) {
+    for (let element of array) {
+      if (!predicate(element)) return false;
+    }
+    return true;
+  }
+  
+  function every2(array, predicate) {
+    return !array.some(element => !predicate(element));
+  }
+  
+  console.log(every([1, 3, 5], n => n < 10));
+  console.log(every([2, 4, 16], n => n < 10));
+  console.log(every([], n => n < 10));
+```
