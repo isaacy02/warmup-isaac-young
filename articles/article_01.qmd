@@ -1,0 +1,139 @@
+---
+title: "Chapter 4 Sum and Range Analysis"
+---
+
+## Introduction to Problem
+
+This problem is one where we needed to write a couple of functions to be able to get the sum and the range of a set of numbers. This problem was the first one that we did for the homework in chapter 4. For this problem we are using numerical values and having to arrange them.
+
+## Problem
+
+The introduction of this book alluded to the following as a nice way to compute the sum of a range of numbers:
+
+console.log(sum(range(1, 10)));
+Write a range function that takes two arguments, start and end, and returns an array containing all the numbers from start up to (and including) end.
+
+Next, write a sum function that takes an array of numbers and returns the sum of these numbers. Run the example program and see whether it does indeed return 55.
+
+As a bonus assignment, modify your range function to take an optional third argument that indicates the “step” value used when building the array. If no step is given, the elements go up by increments of one, corresponding to the old behavior. The function call range(1, 10, 2) should return [1, 3, 5, 7, 9]. Make sure it also works with negative step values so that range(5, 2, -1) produces [5, 4, 3, 2].
+
+## Explaining the code
+```js
+function range(start, end, step = start < end ? 1 : -1) {
+```
+We start the code by starting a function and naming it range. The function is going to take three different parameters start, end, and step. Start is the starting value of the range, and end is the ending value of the range. The step value has a default value for if there is not one given. If start is less than end it will automatically be set to 1, if it is not then it will be set to -1.
+```js
+    let array = [];
+```
+This code line uses an empty array called array.
+```js
+    if (step > 0) {
+```
+Now we are going to use an if else loop to keep going from start to end. The code checks to see if step is greater than 0, if it is than we are going to continue to the for loop below and run that.
+```js
+      for (let i = start; i <= end; i += step) array.push(i);
+```
+Now we are going to use this for loop inside of the if else loop if step is greater than 0 to move from start to end. We are going to start by initializing i to the value of start. And then we see that as long as i is less than or equal to end we are going to keep running it. After each running of the for loop successfully we are going to take i and add 1 to it until we get to the end where it will stop. I is then going to be pushed to the array.
+```js
+    } else {
+```
+Else is part of the if else loop to tell us what we are going to do if step is not greater than 0 to do the opposite of the other for loop.
+```js
+      for (let i = start; i >= end; i += step) array.push(i);
+```
+This for loop is going to be similar but different to make it run from start to finish using step= something less than 0. This will be used for if start to end is going down instead of up. So we once again set i equal to start. Then we are going to run the for loop as long as i is greater than or equal to end. After each iteration of the for loop i is going to decrease by step and i is going to be pushed to the array.
+```js
+    }
+    return array;
+  }
+```
+We are going to use this line to return the array after it has finished its loop using the return command. We said array because that is what we named the array. This is the end of the first function range that when ran is going to get us every number in a range of numbers from the start number to the end number on command.
+```js
+  function sum(array) {
+```
+Now we are going to make another function, this time naming it sum as we are going to use it to find the sum of a group of numbers. It is also going to take a parameter of array.
+```js
+    let tot = 0;
+```
+We are going to use a variable named tot and set it to a value of 0. Let is a command that allows us to create a brand new variable in java. Tot is the name of the variable short for the word total that we are setting to 0.
+```js
+    for (let value of array) {
+```
+Now we are going to use a for loop to iterate over each one of the elements in our array parameter. The current element that we are on is going to going to be assigned to the variable value that we have.
+```js
+      tot += value;
+```
+Now building on that we are going to use this line to add the value of the current element that the code is on the the tot variable we made earlier.
+```js
+    }
+    return tot;
+  }
+```
+This line is going to return the total or tot of what we got to the console so that we can see what it is.
+
+## Examples
+
+Now these next three lines are going to be examples using our functions that were just made to get the range and or sum of a group of numbers.
+```js
+  console.log(range(1, 10))
+```
+This first example is going to use the range function to print all of the numbers from 1 to 10 in the console if the function works correctly.
+
+In the console it would print:
+```js
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+This shows that we did get the range to print into the console as we were desiring.
+
+
+```js
+  console.log(range(5, 2, -1));
+```
+This time we are going to try to test our function a little more still using the range function, but this time the range is going to be going down each time and is going to need to use -1 instead of going up by +1.
+
+In the console it would print:
+```js
+[5, 4, 3, 2]
+```
+This shows that we were indeed able to get our function to iterate down by 1 and print each number along the way from start to finish.
+
+```js
+  console.log(sum(range(1, 10)));
+```
+In this last example we are going to be testing our sum function using the range that we got from the first example to see if it will get the sum of all of the numbers in that range.
+
+In the console it would print:
+```js
+55
+```
+So our sum function also worked and was able to get the desired outcome to print to the console.
+
+Now we are done we have made our two functions to be able to find the range and the sum of a set of numbers.
+
+## Full code
+A complete solution to the problem may be found [here](/js/sum_and_range.js), or the reader may view it below:
+
+```{.javascript filename="sum_and_range.js"}
+function range(start, end, step = start < end ? 1 : -1) {
+    let array = [];
+  
+    if (step > 0) {
+      for (let i = start; i <= end; i += step) array.push(i);
+    } else {
+      for (let i = start; i >= end; i += step) array.push(i);
+    }
+    return array;
+  }
+  
+  function sum(array) {
+    let tot = 0;
+    for (let value of array) {
+      tot += value;
+    }
+    return tot;
+  }
+  
+  console.log(range(1, 10))
+  console.log(range(5, 2, -1));
+  console.log(sum(range(1, 10)));
+```
